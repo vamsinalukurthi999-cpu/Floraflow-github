@@ -1,0 +1,516 @@
+{
+ "categories": [
+  {
+   "category_id": 1,
+   "name": "Bouquets",
+   "description": "Artisan hand-tied bouquets crafted for special occasions"
+  },
+  {
+   "category_id": 2,
+   "name": "Single Stems",
+   "description": "Fresh premium single-variety long-stem blossoms"
+  },
+  {
+   "category_id": 3,
+   "name": "Garlands",
+   "description": "Traditional hand-woven marigold and jasmine garlands"
+  },
+  {
+   "category_id": 4,
+   "name": "Potted Plants",
+   "description": "Long-living lush indoor flowering plants"
+  },
+  {
+   "category_id": 5,
+   "name": "Gift Combos",
+   "description": "Luxury flowers paired with artisan chocolates and gifts"
+  }
+ ],
+ "suppliers": [
+  {
+   "supplier_id": 1,
+   "name": "FloraFarms Direct",
+   "contact": "+91 98765 11001",
+   "address": "Bengaluru Flower Valley, Karnataka",
+   "rating": 4.8
+  },
+  {
+   "supplier_id": 2,
+   "name": "Himalayan Blooms Ltd.",
+   "contact": "+91 98765 22002",
+   "address": "Dehradun Hillside Estates, Uttarakhand",
+   "rating": 4.9
+  },
+  {
+   "supplier_id": 3,
+   "name": "Dutch Floral Imports",
+   "contact": "+91 98765 33003",
+   "address": "Cargo Terminal 2, Mumbai International Airport",
+   "rating": 4.7
+  }
+ ],
+ "customers": [
+  {
+   "customer_id": 1,
+   "name": "Ananya Sharma",
+   "email": "ananya@example.com",
+   "password": "password123",
+   "phone": "+91 98765 43210",
+   "address": "42 Coral Heights, 12th Main, Indiranagar, Bengaluru - 560038"
+  },
+  {
+   "customer_id": 2,
+   "name": "Rahul Mehta",
+   "email": "rahul@example.com",
+   "password": "password123",
+   "phone": "+91 98111 22334",
+   "address": "Flat 302, Green Glen Layout, Bellandur, Bengaluru - 560103"
+  },
+  {
+   "customer_id": 3,
+   "name": "Priya Nair",
+   "email": "priya@example.com",
+   "password": "password123",
+   "phone": "+91 98450 67890",
+   "address": "18 Orchard Crest, Koramangala 4th Block, Bengaluru - 560034"
+  }
+ ],
+ "staff": [
+  {
+   "staff_id": 101,
+   "name": "Meera Florist",
+   "role": "Staff",
+   "email": "staff@flowershop.com",
+   "password": "password123",
+   "phone": "+91 99000 11223"
+  },
+  {
+   "staff_id": 102,
+   "name": "David Florist",
+   "role": "Staff",
+   "email": "david@flowershop.com",
+   "password": "password123",
+   "phone": "+91 99000 11224"
+  },
+  {
+   "staff_id": 201,
+   "name": "Vikram Rider",
+   "role": "DeliveryPerson",
+   "email": "delivery@flowershop.com",
+   "password": "password123",
+   "phone": "+91 97444 55667",
+   "vehicle": "KA-03-EX-4099"
+  },
+  {
+   "staff_id": 202,
+   "name": "Arjun Courier",
+   "role": "DeliveryPerson",
+   "email": "arjun@flowershop.com",
+   "password": "password123",
+   "phone": "+91 97444 55668",
+   "vehicle": "KA-05-MK-8821"
+  },
+  {
+   "staff_id": 301,
+   "name": "Rajesh Admin",
+   "role": "Administrator",
+   "email": "admin@flowershop.com",
+   "password": "password123",
+   "phone": "+91 99888 77665"
+  }
+ ],
+ "flowers": [
+  {
+   "flower_id": 1,
+   "category_id": 1,
+   "supplier_id": 1,
+   "name": "Red Roses Bouquet",
+   "color": "Red",
+   "price": 450,
+   "stock_qty": 24,
+   "occasion": "Anniversary",
+   "image": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=600&q=80",
+   "description": "A dozen velvety crimson long-stem roses wrapped in craft paper with satin ribbon."
+  },
+  {
+   "flower_id": 2,
+   "category_id": 1,
+   "supplier_id": 2,
+   "name": "Royal Orchid Bouquet",
+   "color": "Purple",
+   "price": 600,
+   "stock_qty": 15,
+   "occasion": "Celebration",
+   "image": "https://images.unsplash.com/photo-1525310072745-f49212b5ac6d?auto=format&fit=crop&w=600&q=80",
+   "description": "Stunning exotic purple dendrobium orchids with lush fresh greenery."
+  },
+  {
+   "flower_id": 3,
+   "category_id": 2,
+   "supplier_id": 3,
+   "name": "Dutch Sunshine Tulips",
+   "color": "Yellow",
+   "price": 700,
+   "stock_qty": 8,
+   "occasion": "Birthday",
+   "image": "https://images.unsplash.com/photo-1520763185298-1b434c919102?auto=format&fit=crop&w=600&q=80",
+   "description": "Directly imported golden Dutch tulips bringing joy and warmth."
+  },
+  {
+   "flower_id": 4,
+   "category_id": 1,
+   "supplier_id": 1,
+   "name": "Pristine White Oriental Lilies",
+   "color": "White",
+   "price": 550,
+   "stock_qty": 12,
+   "occasion": "Wedding",
+   "image": "https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=600&q=80",
+   "description": "Fragrant star-shaped white lilies accented with eucalyptus and gypsophila."
+  },
+  {
+   "flower_id": 5,
+   "category_id": 2,
+   "supplier_id": 1,
+   "name": "Golden Sunflower Bunch",
+   "color": "Yellow",
+   "price": 380,
+   "stock_qty": 20,
+   "occasion": "Birthday",
+   "image": "https://images.unsplash.com/photo-1597848212624-a19eb35e2651?auto=format&fit=crop&w=600&q=80",
+   "description": "Radiant, cheerful farm-fresh sunflowers wrapped in rustic hessian."
+  },
+  {
+   "flower_id": 6,
+   "category_id": 2,
+   "supplier_id": 1,
+   "name": "Crimson Carnations Stems",
+   "color": "Red",
+   "price": 350,
+   "stock_qty": 25,
+   "occasion": "Sympathy",
+   "image": "https://images.unsplash.com/photo-1582794543139-8ac9cb0f7b11?auto=format&fit=crop&w=600&q=80",
+   "description": "Long-lasting ruffled red carnation stems symbolizing devotion."
+  },
+  {
+   "flower_id": 7,
+   "category_id": 3,
+   "supplier_id": 1,
+   "name": "Traditional Marigold Garland",
+   "color": "Orange",
+   "price": 250,
+   "stock_qty": 30,
+   "occasion": "Wedding",
+   "image": "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=600&q=80",
+   "description": "Hand-threaded vibrant orange and yellow genda phool auspicious garland."
+  },
+  {
+   "flower_id": 8,
+   "category_id": 3,
+   "supplier_id": 1,
+   "name": "Fragrant Jasmine Veni Garland",
+   "color": "White",
+   "price": 200,
+   "stock_qty": 18,
+   "occasion": "Wedding",
+   "image": "https://images.unsplash.com/photo-1606041008023-472dfb5e530f?auto=format&fit=crop&w=600&q=80",
+   "description": "Traditional jasmine string woven with silver borders and divine fragrance."
+  },
+  {
+   "flower_id": 9,
+   "category_id": 4,
+   "supplier_id": 2,
+   "name": "Peace Lily in Ceramic Pot",
+   "color": "White",
+   "price": 650,
+   "stock_qty": 10,
+   "occasion": "Sympathy",
+   "image": "https://images.unsplash.com/photo-1593691509543-c55fb32e7355?auto=format&fit=crop&w=600&q=80",
+   "description": "Air-purifying peace lily nestled in a matte white designer ceramic planter."
+  },
+  {
+   "flower_id": 10,
+   "category_id": 4,
+   "supplier_id": 2,
+   "name": "Lucky Green Bamboo Plant",
+   "color": "Green",
+   "price": 490,
+   "stock_qty": 14,
+   "occasion": "Birthday",
+   "image": "https://images.unsplash.com/photo-1509423350716-97f9360b4e09?auto=format&fit=crop&w=600&q=80",
+   "description": "Two-layer lucky bamboo stalks believed to usher in prosperity and fortune."
+  },
+  {
+   "flower_id": 11,
+   "category_id": 5,
+   "supplier_id": 1,
+   "name": "Romance Rose & Truffles Combo",
+   "color": "Red",
+   "price": 1150,
+   "stock_qty": 7,
+   "occasion": "Anniversary",
+   "image": "https://images.unsplash.com/photo-1516054575922-f0b8eeadec1a?auto=format&fit=crop&w=600&q=80",
+   "description": "Red roses hand bouquet paired with a 16-piece Belgian dark chocolate box."
+  },
+  {
+   "flower_id": 12,
+   "category_id": 5,
+   "supplier_id": 2,
+   "name": "Luxury Orchid & Candle Hamper",
+   "color": "Purple",
+   "price": 1400,
+   "stock_qty": 5,
+   "occasion": "Celebration",
+   "image": "https://images.unsplash.com/photo-1508610048659-a06b669e3321?auto=format&fit=crop&w=600&q=80",
+   "description": "Exotic orchids nestled with an artisan lavender aromatherapeutic candle."
+  },
+  {
+   "flower_id": 13,
+   "category_id": 1,
+   "supplier_id": 1,
+   "name": "Blush Pink Romance Roses",
+   "color": "Pink",
+   "price": 480,
+   "stock_qty": 16,
+   "occasion": "Anniversary",
+   "image": "https://images.unsplash.com/photo-1561181286-d3fee7d55364?auto=format&fit=crop&w=600&q=80",
+   "description": "Sweet candy pink roses paired with white baby's breath."
+  },
+  {
+   "flower_id": 14,
+   "category_id": 2,
+   "supplier_id": 3,
+   "name": "Exotic Blue Iris Stems",
+   "color": "Purple",
+   "price": 520,
+   "stock_qty": 9,
+   "occasion": "Celebration",
+   "image": "https://images.unsplash.com/photo-1526047932273-341f2a7631f9?auto=format&fit=crop&w=600&q=80",
+   "description": "Slender deep blue-violet Dutch iris blossoms symbolising wisdom and hope."
+  }
+ ],
+ "orders": [
+  {
+   "order_id": 1001,
+   "customer_id": 1,
+   "order_date": "2026-11-19T10:30:00",
+   "delivery_date": "2026-11-20",
+   "delivery_time": "01:00 PM - 04:00 PM",
+   "delivery_address": "42 Coral Heights, 12th Main, Indiranagar, Bengaluru - 560038",
+   "status": "Out for Delivery",
+   "subtotal": 1500,
+   "delivery_charge": 50,
+   "discount": 100,
+   "total_amount": 1450,
+   "assigned_staff_id": 201
+  },
+  {
+   "order_id": 1002,
+   "customer_id": 2,
+   "order_date": "2026-11-20T08:15:00",
+   "delivery_date": "2026-11-21",
+   "delivery_time": "09:00 AM - 12:00 PM",
+   "delivery_address": "Flat 302, Green Glen Layout, Bellandur, Bengaluru - 560103",
+   "status": "Preparing",
+   "subtotal": 700,
+   "delivery_charge": 50,
+   "discount": 0,
+   "total_amount": 750,
+   "assigned_staff_id": 201
+  },
+  {
+   "order_id": 1003,
+   "customer_id": 3,
+   "order_date": "2026-11-18T14:20:00",
+   "delivery_date": "2026-11-19",
+   "delivery_time": "05:00 PM - 08:00 PM",
+   "delivery_address": "18 Orchard Crest, Koramangala 4th Block, Bengaluru - 560034",
+   "status": "Delivered",
+   "subtotal": 550,
+   "delivery_charge": 50,
+   "discount": 0,
+   "total_amount": 600,
+   "assigned_staff_id": 202
+  },
+  {
+   "order_id": 1004,
+   "customer_id": 1,
+   "order_date": "2026-11-20T11:45:00",
+   "delivery_date": "2026-11-21",
+   "delivery_time": "01:00 PM - 04:00 PM",
+   "delivery_address": "42 Coral Heights, Indiranagar, Bengaluru",
+   "status": "Payment Confirmed",
+   "subtotal": 1010,
+   "delivery_charge": 50,
+   "discount": 160,
+   "total_amount": 900,
+   "assigned_staff_id": 201
+  },
+  {
+   "order_id": 1005,
+   "customer_id": 2,
+   "order_date": "2026-11-20T12:10:00",
+   "delivery_date": "2026-11-22",
+   "delivery_time": "09:00 AM - 12:00 PM",
+   "delivery_address": "Bellandur Tech Zone, Bengaluru",
+   "status": "Order Placed",
+   "subtotal": 1150,
+   "delivery_charge": 50,
+   "discount": 0,
+   "total_amount": 1200,
+   "assigned_staff_id": null
+  }
+ ],
+ "order_items": [
+  {
+   "item_id": 1,
+   "order_id": 1001,
+   "flower_id": 1,
+   "quantity": 2,
+   "unit_price": 450
+  },
+  {
+   "item_id": 2,
+   "order_id": 1001,
+   "flower_id": 2,
+   "quantity": 1,
+   "unit_price": 600
+  },
+  {
+   "item_id": 3,
+   "order_id": 1002,
+   "flower_id": 3,
+   "quantity": 1,
+   "unit_price": 700
+  },
+  {
+   "item_id": 4,
+   "order_id": 1003,
+   "flower_id": 4,
+   "quantity": 1,
+   "unit_price": 550
+  },
+  {
+   "item_id": 5,
+   "order_id": 1004,
+   "flower_id": 5,
+   "quantity": 2,
+   "unit_price": 380
+  },
+  {
+   "item_id": 6,
+   "order_id": 1004,
+   "flower_id": 7,
+   "quantity": 1,
+   "unit_price": 250
+  },
+  {
+   "item_id": 7,
+   "order_id": 1005,
+   "flower_id": 11,
+   "quantity": 1,
+   "unit_price": 1150
+  }
+ ],
+ "payments": [
+  {
+   "payment_id": "PAY-1001-RZP",
+   "order_id": 1001,
+   "method": "Online Payment (Razorpay)",
+   "amount": 1450,
+   "status": "Paid",
+   "paid_on": "2026-11-19T10:32:00"
+  },
+  {
+   "payment_id": "PAY-1002-COD",
+   "order_id": 1002,
+   "method": "Cash on Delivery",
+   "amount": 750,
+   "status": "Pending",
+   "paid_on": null
+  },
+  {
+   "payment_id": "PAY-1003-RZP",
+   "order_id": 1003,
+   "method": "Online Payment (Card)",
+   "amount": 600,
+   "status": "Paid",
+   "paid_on": "2026-11-18T14:22:00"
+  },
+  {
+   "payment_id": "PAY-1004-RZP",
+   "order_id": 1004,
+   "method": "Online Payment (Razorpay)",
+   "amount": 900,
+   "status": "Paid",
+   "paid_on": "2026-11-20T11:46:00"
+  },
+  {
+   "payment_id": "PAY-1005-COD",
+   "order_id": 1005,
+   "method": "Cash on Delivery",
+   "amount": 1200,
+   "status": "Pending",
+   "paid_on": null
+  }
+ ],
+ "deliveries": [
+  {
+   "delivery_id": "DEL-1001",
+   "order_id": 1001,
+   "staff_id": 201,
+   "address": "42 Coral Heights, Indiranagar, Bengaluru",
+   "status": "Out for Delivery",
+   "delivered_on": null
+  },
+  {
+   "delivery_id": "DEL-1002",
+   "order_id": 1002,
+   "staff_id": 201,
+   "address": "Flat 302, Green Glen Layout, Bellandur",
+   "status": "Scheduled",
+   "delivered_on": null
+  },
+  {
+   "delivery_id": "DEL-1003",
+   "order_id": 1003,
+   "staff_id": 202,
+   "address": "18 Orchard Crest, Koramangala 4th Block",
+   "status": "Delivered",
+   "delivered_on": "2026-11-19T18:40:00"
+  },
+  {
+   "delivery_id": "DEL-1004",
+   "order_id": 1004,
+   "staff_id": 201,
+   "address": "42 Coral Heights, Indiranagar, Bengaluru",
+   "status": "Scheduled",
+   "delivered_on": null
+  },
+  {
+   "delivery_id": "DEL-1005",
+   "order_id": 1005,
+   "staff_id": null,
+   "address": "Bellandur Tech Zone, Bengaluru",
+   "status": "Unassigned",
+   "delivered_on": null
+  }
+ ],
+ "coupons": [
+  {
+   "code": "FLOWER100",
+   "discount": 100,
+   "min_order": 1000
+  },
+  {
+   "code": "FESTIVE150",
+   "discount": 150,
+   "min_order": 1200
+  },
+  {
+   "code": "WELCOME50",
+   "discount": 50,
+   "min_order": 400
+  }
+ ]
+}

@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: floraflow
+    runtime: python
+    plan: starter            # a persistent disk needs a paid plan; "free" works but resets data on restart
+    buildCommand: echo "nothing to install"
+    startCommand: python server.py
+    envVars:
+      - key: DB_PATH
+        value: /var/data/floraflow.db
+    disk:
+      name: floraflow-data
+      mountPath: /var/data
+      sizeGB: 1

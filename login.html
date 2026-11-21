@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sign in · FloraFlow</title>
+<style>
+:root{
+  --g900:#0f3d22; --g800:#14532d; --g700:#1b6b38; --g600:#2b8a3e; --g500:#37a24d;
+  --g100:#e6f6ea; --g50:#f3fbf5; --ink:#17321f; --muted:#5d7466; --err:#c92a2a;
+}
+@media (prefers-color-scheme: dark){
+  :root{ --g50:#0d2616; --g100:#14351f; --ink:#e7f5ea; --muted:#9bb8a4; }
+  .card{ background:#122c1b !important; }
+  input{ background:#0d2616 !important; color:var(--ink) !important; border-color:#2a5a3a !important; }
+}
+*{box-sizing:border-box}
+body{
+  margin:0; min-height:100vh; display:flex; align-items:center; justify-content:center; padding:1.5rem;
+  font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; color:var(--ink);
+  background:linear-gradient(135deg,var(--g900),var(--g600) 60%,#6fcf84);
+}
+.card{ width:100%; max-width:430px; background:#fff; border-radius:20px; overflow:hidden;
+  box-shadow:0 20px 50px rgba(0,0,0,.28); }
+.brand{ padding:1.6rem 1.5rem 1rem; text-align:center; background:var(--g50); }
+.brand .logo{ font-size:2.4rem; line-height:1 }
+.brand h1{ margin:.35rem 0 0; font-size:1.35rem; color:var(--g700) }
+.brand p{ margin:.2rem 0 0; color:var(--muted); font-size:.88rem }
+.tabs{ display:flex; background:var(--g100) }
+.tab{ flex:1; padding:.8rem .4rem; border:0; background:transparent; cursor:pointer; font:inherit; font-size:.88rem;
+  font-weight:600; color:var(--muted); border-bottom:3px solid transparent }
+.tab[aria-selected="true"]{ color:var(--g700); border-bottom-color:var(--g600); background:rgba(255,255,255,.55) }
+.tab:focus-visible{ outline:2px solid var(--g600); outline-offset:-2px }
+form{ padding:1.4rem 1.5rem 1.6rem }
+label{ display:block; font-size:.82rem; font-weight:600; margin:.9rem 0 .3rem }
+input{ width:100%; padding:.7rem .8rem; border:1.5px solid #cfe3d4; border-radius:10px; font:inherit; background:#fff }
+input:focus{ outline:none; border-color:var(--g600); box-shadow:0 0 0 3px rgba(43,138,62,.18) }
+button.primary{ width:100%; margin-top:1.3rem; padding:.8rem; border:0; border-radius:10px; cursor:pointer;
+  font:inherit; font-weight:700; color:#fff; background:var(--g600) }
+button.primary:hover{ background:var(--g700) }
+button.primary:disabled{ opacity:.6; cursor:wait }
+.admin-mode button.primary{ background:var(--g900) }
+.admin-mode button.primary:hover{ background:#000 }
+.msg{ margin-top:1rem; padding:.65rem .8rem; border-radius:8px; font-size:.86rem; display:none }
+.msg.err{ display:block; background:#fff0f0; color:var(--err); border:1px solid #ffc9c9 }
+.msg.ok{ display:block; background:var(--g100); color:var(--g800); border:1px solid #b2dfbd }
+.switch{ text-align:center; margin-top:1rem; font-size:.86rem; color:var(--muted) }
+.switch a{ color:var(--g600); font-weight:700; cursor:pointer; text-decoration:none }
+.hint{ margin-top:1.1rem; padding:.7rem .8rem; background:var(--g50); border-radius:10px; font-size:.78rem; color:var(--muted) }
+.hint code{ color:var(--g700) }
+.hidden{ display:none }
+</style>
+</head>
+<body>
+<main class="card" id="card">
+  <div class="brand">
+    <div class="logo" aria-hidden="true">🌿</div>
+    <h1>FloraFlow</h1>
+    <p id="subtitle">Welcome back! Sign in to order fresh flowers.</p>
+  </div>
+
+  <div class="tabs" role="tablist">
+    <button class="tab" role="tab" id="t-customer" aria-selected="true"  data-portal="customer">Customer</button>
+    <button class="tab" role="tab" id="t-admin"    aria-selected="false" data-portal="admin">Administrator</button>
+    <button class="tab" role="tab" id="t-staff"    aria-selected="false" data-portal="staff">Staff / Delivery</button>
+  </div>
+
+  <form id="loginForm" novalidate>
+    <label for="email">Email</label>
+    <input id="email" type="email" autocomplete="username" required>
+    <label for="password">Password</label>
+    <input id="password" type="password" autocomplete="current-password" required>
+    <button class="primary" id="loginBtn" type="submit">Sign in</button>
+    <div class="msg" id="loginMsg" role="alert"></div>
+    <div class="switch" id="toRegister">New customer? <a id="showRegister">Create an account</a></div>
+    <div class="hint" id="hint"></div>
+  </form>
+
+  <form id="registerForm" class="hidden" novalidate>
+    <label for="rName">Full name</label>
+    <input id="rName" type="text" autocomplete="name" required>
+    <label for="rEmail">Email</label>
+    <input id="rEmail" type="email" autocomplete="email" required>
+    <label for="rPhone">Phone (optional)</label>
+    <input id="rPhone" type="tel" autocomplete="tel">
+    <label for="rAddress">Delivery address</label>
+    <input id="rAddress" type="text" autocomplete="street-address" required>
+    <label for="rPassword">Password (min 6 characters)</label>
+    <input id="rPassword" type="password" autocomplete="new-password" required minlength="6">
+    <button class="primary" id="regBtn" type="submit">Create account</button>
+    <div class="msg" id="regMsg" role="alert"></div>
+    <div class="switch">Already registered? <a id="showLogin">Back to sign in</a></div>
+  </form>
+</main>
+
+<script>
+const INFO = {
+  customer: { sub: "Welcome back! Sign in to order fresh flowers.",
+              hint: "Demo customer: <code>ananya@example.com</code> / <code>password123</code>" },
+  admin:    { sub: "Administrator access: products, orders, reports and suppliers.",
+              hint: "Demo administrator: <code>admin@flowershop.com</code> / <code>password123</code>" },
+  staff:    { sub: "For florists and delivery partners.",
+              hint: "Demo florist: <code>staff@flowershop.com</code><br>Demo delivery: <code>delivery@flowershop.com</code><br>Password: <code>password123</code>" }
+};
+let portal = "customer";
+const $ = id => document.getElementById(id);
+
+function setPortal(p){
+  portal = p;
+  document.querySelectorAll(".tab").forEach(t => t.setAttribute("aria-selected", String(t.dataset.portal === p)));
+  $("subtitle").textContent = INFO[p].sub;
+  $("hint").innerHTML = INFO[p].hint;
+  $("card").classList.toggle("admin-mode", p === "admin");
+  $("toRegister").classList.toggle("hidden", p !== "customer");
+  $("loginMsg").className = "msg";
+  showLogin();
+}
+function showRegister(){ $("loginForm").classList.add("hidden"); $("registerForm").classList.remove("hidden"); }
+function showLogin(){ $("registerForm").classList.add("hidden"); $("loginForm").classList.remove("hidden"); }
+
+document.querySelectorAll(".tab").forEach(t => t.addEventListener("click", () => setPortal(t.dataset.portal)));
+$("showRegister").addEventListener("click", showRegister);
+$("showLogin").addEventListener("click", showLogin);
+
+async function post(url, body){
+  const r = await fetch(url, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) });
+  return { ok: r.ok, status: r.status, data: await r.json().catch(() => ({})) };
+}
+
+$("loginForm").addEventListener("submit", async e => {
+  e.preventDefault();
+  const msg = $("loginMsg"), btn = $("loginBtn");
+  if (!$("email").value.trim() || !$("password").value) {
+    msg.className = "msg err"; msg.textContent = "Please enter your email and password."; return;
+  }
+  btn.disabled = true; btn.textContent = "Signing in…"; msg.className = "msg";
+  try {
+    const r = await post("/api/login", { email: $("email").value, password: $("password").value, portal });
+    if (r.ok) { msg.className = "msg ok"; msg.textContent = "Welcome, " + r.data.user.name + "!"; location.replace("/"); return; }
+    msg.className = "msg err"; msg.textContent = r.data.error || "Sign in failed.";
+  } catch (err) {
+    msg.className = "msg err"; msg.textContent = "Cannot reach the server. Is python server.py running?";
+  }
+  btn.disabled = false; btn.textContent = "Sign in";
+});
+
+$("registerForm").addEventListener("submit", async e => {
+  e.preventDefault();
+  const msg = $("regMsg"), btn = $("regBtn");
+  btn.disabled = true; msg.className = "msg";
+  try {
+    const r = await post("/api/register", { name: $("rName").value, email: $("rEmail").value,
+      phone: $("rPhone").value, address: $("rAddress").value, password: $("rPassword").value });
+    if (r.ok) {
+      showLogin(); $("email").value = $("rEmail").value; $("password").value = "";
+      const lm = $("loginMsg"); lm.className = "msg ok"; lm.textContent = "Account created. Please sign in."; $("password").focus();
+    } else { msg.className = "msg err"; msg.textContent = r.data.error || "Registration failed."; }
+  } catch (err) { msg.className = "msg err"; msg.textContent = "Cannot reach the server."; }
+  btn.disabled = false;
+});
+
+// Already signed in? go straight to the shop.
+fetch("/api/me").then(r => { if (r.ok) location.replace("/"); }).catch(() => {});
+const want = location.hash.replace("#", "");
+setPortal(INFO[want] ? want : "customer");
+</script>
+</body>
+</html>
